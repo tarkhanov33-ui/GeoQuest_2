@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:id="@+id/chat_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="@color/surface_dark"
+        android:elevation="4dp">
+
+        <ImageView
+            android:id="@+id/btnAddFriend"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@android:drawable/ic_input_add"
+            app:tint="@color/gold_accent"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="12dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/user"
+                android:background="@drawable/bg_circle_logo"
+                android:backgroundTint="@color/surface_dark"
+                app:tint="@color/gold_accent"
+                android:padding="8dp"/>
+
+            <TextView
+                android:id="@+id/tvChatHeaderName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Samira Hadid"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Online"
+                android:textSize="14sp"
+                android:textColor="@color/success_green"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutCreatorApproval"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/chat_header"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="@color/surface_dark"
+        android:gravity="center"
+        android:visibility="gone"
+        android:elevation="4dp">
+        
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDecline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Decline"
+            android:textColor="@color/error_red"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_marginEnd="8dp"/>
+            
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnApprove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Approve Solution"
+            app:backgroundTint="@color/success_green"
+            android:textColor="@color/bg_dark"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutInviteApproval"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layoutCreatorApproval"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="@color/surface_dark"
+        android:gravity="center"
+        android:visibility="gone"
+        android:elevation="4dp">
+        
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDeclineInvite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Decline Invite"
+            android:textColor="@color/error_red"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_marginEnd="8dp"/>
+            
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAcceptInvite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Join Quest"
+            app:backgroundTint="@color/gold_accent"
+            android:textColor="@color/bg_dark"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvChat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layoutInviteApproval"
+        android:layout_above="@id/chat_input_layout"
+        android:padding="8dp"
+        android:clipToPadding="false"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/chat_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="90dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="6dp"
+        app:cardBackgroundColor="@color/surface_dark">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/btnChatAttach"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="8dp"
+                android:src="@android:drawable/ic_menu_camera"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="4dp"
+                app:tint="@color/gold_accent_variant" />
+
+            <ImageView
+                android:id="@+id/btnHintAI"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="8dp"
+                android:src="@android:drawable/ic_menu_help"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="4dp"
+                app:tint="#A24AFC" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etChatMessage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:hint="Type a message..."
+                android:textColorHint="@color/text_secondary"
+                android:textColor="@color/text_primary"
+                android:background="@android:color/transparent"
+                android:inputType="textShortMessage"
+                android:maxLines="4" />
+
+            <ImageView
+                android:id="@+id/btnChatSend"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/home"
+                android:background="@drawable/bg_circle_logo"
+                android:backgroundTint="@color/gold_accent"
+                android:padding="8dp"
+                app:tint="@color/bg_dark" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

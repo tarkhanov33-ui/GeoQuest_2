@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GeoQuest</string>
+
+    <string name="menu_login">Sign in</string>
+    <string name="menu_signup">Register</string>
+    <string name="agree_terms">Agree with Terms &amp; Conditions</string>
+</resources>
